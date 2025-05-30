@@ -1,8 +1,7 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Pagination } from 'swiper/modules';
+import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
-import 'swiper/css/pagination';
 
 const Tools = () => {
   return (
@@ -14,12 +13,11 @@ const Tools = () => {
           </h2>
 
           <Swiper
-            modules={[Autoplay, Pagination]}
+            modules={[Autoplay]}
             slidesPerView={3}
             spaceBetween={30}
             autoplay={{ delay: 2000, disableOnInteraction: false }}
             loop={true}
-            pagination={{ clickable: true }}
             breakpoints={{
               320: { slidesPerView: 3 },
               640: { slidesPerView: 4 },
