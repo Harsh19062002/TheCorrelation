@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import blogData, { categories } from '../BlogData';
 
-
 const Blog = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [currentPage, setCurrentPage] = useState(1);
@@ -19,11 +18,11 @@ const Blog = () => {
   const totalPages = Math.ceil(filteredBlogs.length / blogsPerPage);
 
   return (
-    <div className="bg-white px-4 md:px-12 py-8">
-      <h1 className="text-3xl md:text-4xl font-bold text-center mb-4 text-blue-600">
+    <div className="bg-yellow-50 px-4 md:px-12 py-8">
+      <h1 className="text-3xl md:text-4xl font-bold text-center mb-4 text-orange-500">
         TheCorrelation Blogs
       </h1>
-      <p className="text-center text-gray-500 mb-8">
+      <p className="text-center text-gray-700 mb-8">
         Discover insightful articles, expert opinions, and the latest trends in our Blogs section.
       </p>
 
@@ -32,8 +31,10 @@ const Blog = () => {
         {categories.map((cat) => (
           <button
             key={cat}
-            className={`px-4 py-2 rounded-full text-sm font-medium border ${
-              selectedCategory === cat ? 'bg-black text-white' : 'text-black border-black'
+            className={`px-4 py-2 rounded-full text-sm font-medium border transition ${
+              selectedCategory === cat
+                ? 'bg-orange-500 text-white border-orange-500'
+                : 'bg-white text-gray-800 border-gray-400 hover:bg-gray-100'
             }`}
             onClick={() => {
               setSelectedCategory(cat);
@@ -54,16 +55,20 @@ const Blog = () => {
             href={blog.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="block rounded-lg shadow-md overflow-hidden bg-white"
+            className="block rounded-2xl shadow-xl overflow-hidden bg-white"
           >
-            <img src={blog.image} alt={blog.title} className="w-full text-blue-700 h-36 object-cover" />
+            <img
+              src={blog.image}
+              alt={blog.title}
+              className="w-full h-36 object-cover"
+            />
             <div className="p-4">
-              <h3 className="text-lg text-blue-700 font-semibold mb-1">{blog.title}</h3>
-              <p className="text-gray-500 text-sm mb-2">
+              <h3 className="text-lg text-orange-500 font-semibold mb-1">{blog.title}</h3>
+              <p className="text-gray-600 text-sm mb-2">
                 {blog.author} • {blog.date} • {blog.category}
               </p>
               <p className="text-sm text-gray-700">{blog.excerpt}</p>
-              <span className="text-blue-500 text-sm mt-2 inline-block">
+              <span className="text-orange-500 text-sm mt-2 inline-block font-medium">
                 Read more ↗
               </span>
             </div>
@@ -77,8 +82,10 @@ const Blog = () => {
           <button
             key={idx}
             onClick={() => setCurrentPage(idx + 1)}
-            className={`w-8 h-8 rounded-full flex items-center justify-center text-sm ${
-              currentPage === idx + 1 ? 'bg-black text-white' : 'bg-gray-200 text-black'
+            className={`w-8 h-8 rounded-full flex items-center justify-center text-sm transition ${
+              currentPage === idx + 1
+                ? 'bg-orange-500 text-white'
+                : 'bg-gray-200 text-gray-800 hover:bg-gray-300'
             }`}
           >
             {idx + 1}
@@ -87,7 +94,7 @@ const Blog = () => {
         {currentPage < totalPages && (
           <button
             onClick={() => setCurrentPage(currentPage + 1)}
-            className="text-sm px-3 py-1 border text-black border-black rounded-full"
+            className="text-sm px-3 py-1 border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white transition rounded-full"
           >
             Next »
           </button>
