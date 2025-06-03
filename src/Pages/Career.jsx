@@ -481,9 +481,7 @@ export default function SophosCareerPage() {
           </div>
         </div>
       )}
-
-      
-      
+   
     </div>
   );
 }

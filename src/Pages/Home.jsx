@@ -15,7 +15,7 @@ import FacultySection from '../components/FacultySection';
 import SuccessStoriesSection from '../components/SuccessStoriesSection';
 import PartnerBrands from '../components/PartnerBrands';
 import ReachOutForm from '../components/ReachOutForm';
-import courseContent from "../courseContent"; // adjust path
+import courseContent from "../courseContent"; 
 import { useNavigate } from "react-router-dom";
 
 
